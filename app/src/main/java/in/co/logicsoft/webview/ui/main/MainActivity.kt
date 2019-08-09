@@ -1,6 +1,9 @@
-package `in`.co.logicsoft.webview
+package `in`.co.logicsoft.webview.ui.main
 
+import `in`.co.logicsoft.webview.R
+import `in`.co.logicsoft.webview.ui.webview.WebViewActivity
 import `in`.co.logicsoft.webview.databinding.ActivityMainBinding
+import `in`.co.logicsoft.webview.room.message.Message
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -14,13 +17,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(
+            this,
+            R.layout.activity_main
+        )
 
         val viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
-        viewModel.setMessage("Web Sample")
+        viewModel.setMessage(Message(text = "Web Sample"))
     }
 
     fun openInWebView(view: View) {
