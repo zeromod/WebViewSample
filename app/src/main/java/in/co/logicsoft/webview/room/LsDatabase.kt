@@ -1,15 +1,15 @@
 package `in`.co.logicsoft.webview.room
 
-import `in`.co.logicsoft.webview.room.message.Message
-import `in`.co.logicsoft.webview.room.message.MessageDao
+import `in`.co.logicsoft.webview.room.web.Web
+import `in`.co.logicsoft.webview.room.web.WebDao
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Message::class], version = 1)
+@Database(entities = [Web::class], version = 1)
 abstract class LsDatabase : RoomDatabase() {
-    abstract fun messageDao(): MessageDao
+    abstract fun messageDao(): WebDao
 
     companion object {
         var TESTING = false
